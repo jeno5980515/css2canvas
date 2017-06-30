@@ -1,12 +1,15 @@
 var block = document.createElement('div') ;
+block.classList.add('block');
 document.body.appendChild(block);
 var style = {
 	width : '100px' ,
-	heigth : '100px' ,
+	height : '100px' ,
 	backgroundColor : 'red' ,
   animationDuration : '2s' ,
-	animationTimingFunction : 'linear'
+	animationTimingFunction : 'linear' ,
+  animationFillMode: 'forwards'
 }
+
 var animation = {
   from : { 
 	  marginLeft : '0px'  
