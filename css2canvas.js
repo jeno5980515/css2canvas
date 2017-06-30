@@ -22,8 +22,10 @@ var css2canvas = (function(){
 		animation : null ,  
 		duration : -1 ,
 		timer : 0 ,
-		rate : 0 ,
-		x : 0 
+		rateX : 0 ,
+		rateY : 0 ,
+		x : 0 ,
+		y : 0
 	}
 
 	function init(canvas,config){
@@ -41,8 +43,9 @@ var css2canvas = (function(){
 				onrendered: function(domCanvas) {
 					props.timer += COUNTER_SPEED ;
 					props.canvas.width = props.canvas.width ;
-					props.ctx.drawImage(domCanvas,props.x ,0);
-					props.x += props.rate ;
+					props.ctx.drawImage(domCanvas,props.x ,props.y);
+					props.x += props.rateX ;
+					props.y += props.rateY ;
 					requestID = requestAnimationFrame(draw) ;
 				}
 			});
@@ -59,7 +62,9 @@ var css2canvas = (function(){
 
 	function addAnimation(animation){
 		props.x = parseInt(animation['from'].marginLeft) ;
-		props.rate = ( parseInt(animation['to'].marginLeft) - parseInt(animation['from'].marginLeft) ) / ( props.duration / 1000 ) / 60  ;
+		props.y = parseInt(animation['from'].marginTop) ;
+		props.rateX = ( parseInt(animation['to'].marginLeft) - parseInt(animation['from'].marginLeft) ) / ( props.duration / 1000 ) / 60  ;
+		props.rateY = ( parseInt(animation['to'].marginTop) - parseInt(animation['from'].marginTop) ) / ( props.duration / 1000 ) / 60  ;
 	}
 
 	return {

@@ -10,5 +10,5 @@
 
 @keyframes example {
     from {margin-left: 0px;}
-    to {margin-left: 300px;}
+    to {margin-left: 300px;margin-top: 300px;}
 }

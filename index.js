@@ -1,6 +1,4 @@
-var block = document.createElement('div') ;
-block.classList.add('block');
-document.body.appendChild(block);
+
 var style = {
 	width : '100px' ,
 	height : '100px' ,
@@ -12,22 +10,32 @@ var style = {
 
 var animation = {
   from : { 
-	  marginLeft : '0px'  
+	  marginLeft : '0px'  ,
+		marginTop : '0px' 
 	} ,
   to : { 
-	  marginLeft : '300px' 
+	  marginLeft : '300px' ,
+		marginTop : '300px' 
 	}
 }
 
 var canvas = document.createElement('canvas') ;
-canvas.width = 500 ;
+canvas.width = 400 ;
+canvas.height = 400 ;
 document.body.appendChild(canvas); 
 
 var dom = document.createElement('div') ;
 for ( var key in style ){
 	dom.style[key] = style[key] ;
 }
+
+
+var block = document.createElement('div') ;
+block.classList.add('block');
+document.body.appendChild(block);
+
 css2canvas.init(canvas);
 css2canvas.addDOM(dom) ;
 css2canvas.addAnimation(animation) ;
 css2canvas.draw();
+
