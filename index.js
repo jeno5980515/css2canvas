@@ -4,13 +4,14 @@ var style = {
 	width : '100px' ,
 	heigth : '100px' ,
 	backgroundColor : 'red' ,
-  animationDuration : 2
+  animationDuration : '2s' ,
+	animationTimingFunction : 'linear'
 }
 var animation = {
-  0 : { 
+  from : { 
 	  marginLeft : '0px'  
 	} ,
-  100 : { 
+  to : { 
 	  marginLeft : '300px' 
 	}
 }

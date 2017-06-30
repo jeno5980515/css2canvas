@@ -4,9 +4,10 @@ div {
     background-color: red;
     animation-name: example;
     animation-duration: 2s;
+    animation-timing-function: linear;
 }
 
 @keyframes example {
-    0%   { margin-left:0px; }
-    100% { margin-left:300px; }
+    from {margin-left: 0px;}
+    to {margin-left: 300px;}
 }
