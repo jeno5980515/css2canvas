@@ -12,18 +12,22 @@ var animation = {
   from : { 
 	  marginLeft : '0px'  ,
 		marginTop : '0px' ,
+		width : '100px' ,
+		height : '100px' ,
 		backgroundColor : 'rgb(255,0,0)' 
 	} ,
   to : { 
 	  marginLeft : '300px' ,
-		marginTop : '300px' ,
+		marginTop : '150px' ,
+		width : '150px' ,
+		height : '150px' ,
 		backgroundColor : 'rgb(0,0,255)'
 	}
 }
 
 var canvas = document.createElement('canvas') ;
-canvas.width = 400 ;
-canvas.height = 400 ;
+canvas.width = 500 ;
+canvas.height = 300 ;
 document.body.appendChild(canvas); 
 
 var dom = document.createElement('div') ;

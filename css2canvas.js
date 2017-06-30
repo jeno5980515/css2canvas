@@ -27,7 +27,11 @@ var css2canvas = (function(){
 		x : 0 ,
 		y : 0 ,
 		beginColor : null ,
-		endColor : null 
+		endColor : null ,
+		beginWidth : null ,
+		endWidth : null ,
+		beginHeight : null ,
+		endHeight : null
 	}
 
 	function calcTransitionColor(a,b,u) {
@@ -42,6 +46,16 @@ var css2canvas = (function(){
 		return 'rgb('+r+','+g+','+b+')' ;
 	};
 
+	function getTransitionWidth() {
+		var step = props.timer / props.duration ;
+		return (props.endWidth - props.beginWidth) * step + props.beginWidth ;
+	}
+
+	function getTransitionHeight() {
+		var step = props.timer / props.duration ;
+		return (props.endHeight - props.beginHeight) * step + props.beginHeight ;
+	}
+
 	function init(canvas,config){
 		props.canvas = canvas ;
 		props.ctx = props.canvas.getContext('2d') ;
@@ -53,8 +67,9 @@ var css2canvas = (function(){
 	function draw(){
 		if ( props.timer <= props.duration ){
 			if ( fakeBody.style.display === 'none' ) fakeBody.style.display = 'block' ;
-			//console.log(getTransitionColor())
 			props.DOM.style.backgroundColor = getTransitionColor();
+			props.DOM.style.width = getTransitionWidth();
+			props.DOM.style.height = getTransitionHeight();
 			html2canvas(props.DOM, {
 				onrendered: function(domCanvas) {
 					props.timer += COUNTER_SPEED ;
@@ -88,6 +103,12 @@ var css2canvas = (function(){
 		props.y = parseInt(animation['from'].marginTop) ;
 		props.beginColor = convertToRGB(animation['from'].backgroundColor) ;
 		props.endColor = convertToRGB(animation['to'].backgroundColor) ;
+		
+		props.beginWidth = parseInt(animation['from'].width) ;
+		props.endWidth = parseInt(animation['to'].width) ;
+		props.beginHeight = parseInt(animation['from'].height) ;
+		props.endHeight = parseInt(animation['to'].height) ;
+
 		props.rateX = ( parseInt(animation['to'].marginLeft) - parseInt(animation['from'].marginLeft) ) / ( props.duration / 1000 ) / 60  ;
 		props.rateY = ( parseInt(animation['to'].marginTop) - parseInt(animation['from'].marginTop) ) / ( props.duration / 1000 ) / 60  ;
 	}

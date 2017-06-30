@@ -9,6 +9,6 @@
 }
 
 @keyframes example {
-    from {margin-left: 0px; background-color: rgb(255,0,0); }
-    to {margin-left: 300px;margin-top: 300px; background-color: rgb(0,0,255);}
+    from {margin-left: 0px; background-color: rgb(255,0,0); width: 100px ; height : 100px }
+    to {margin-left: 300px;margin-top: 150px; background-color: rgb(0,0,255);  width: 150px ; height : 150px}
 }
