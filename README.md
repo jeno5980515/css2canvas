@@ -19,12 +19,12 @@ css2canvas.draw();
 {
   // the canvas you want to render
   canvas : canvas ,
-	// the dom you want to simulate or calculate
+  // the dom you want to simulate or calculate
   DOM : document.querySelector('.container') ,
-	// mode in simulate or calculate
+  // mode in simulate or calculate
   mode : 'simulate' ,
-	// animation object , only needed in simulate mode
-	animation : animation 
+  // animation object , only needed in simulate mode
+  animation : animation 
 }
 ```
 
