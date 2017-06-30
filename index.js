@@ -11,11 +11,13 @@ var style = {
 var animation = {
   from : { 
 	  marginLeft : '0px'  ,
-		marginTop : '0px' 
+		marginTop : '0px' ,
+		backgroundColor : 'rgb(255,0,0)' 
 	} ,
   to : { 
 	  marginLeft : '300px' ,
-		marginTop : '300px' 
+		marginTop : '300px' ,
+		backgroundColor : 'rgb(0,0,255)'
 	}
 }
 

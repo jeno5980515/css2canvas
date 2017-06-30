@@ -25,8 +25,22 @@ var css2canvas = (function(){
 		rateX : 0 ,
 		rateY : 0 ,
 		x : 0 ,
-		y : 0
+		y : 0 ,
+		beginColor : null ,
+		endColor : null 
 	}
+
+	function calcTransitionColor(a,b,u) {
+		return (1-u) * a + u * b;
+	};
+	
+	function getTransitionColor() {
+		var step = props.timer / props.duration ;
+		var r = parseInt(calcTransitionColor(props.beginColor[0], props.endColor[0], step));
+		var g = parseInt(calcTransitionColor(props.beginColor[1], props.endColor[1], step));
+		var b = parseInt(calcTransitionColor(props.beginColor[2], props.endColor[2], step));
+		return 'rgb('+r+','+g+','+b+')' ;
+	};
 
 	function init(canvas,config){
 		props.canvas = canvas ;
@@ -39,6 +53,8 @@ var css2canvas = (function(){
 	function draw(){
 		if ( props.timer <= props.duration ){
 			if ( fakeBody.style.display === 'none' ) fakeBody.style.display = 'block' ;
+			//console.log(getTransitionColor())
+			props.DOM.style.backgroundColor = getTransitionColor();
 			html2canvas(props.DOM, {
 				onrendered: function(domCanvas) {
 					props.timer += COUNTER_SPEED ;
@@ -60,9 +76,18 @@ var css2canvas = (function(){
 		fakeBody.appendChild(props.DOM);
 	}
 
+	function convertToRGB(color){
+		var result = color.replace(/ /g, "").replace(/rgb\(/g,"").replace(')',"") ;
+		return result.split(',').map(function(el){
+			return parseInt(el) ;
+		})
+	}
+
 	function addAnimation(animation){
 		props.x = parseInt(animation['from'].marginLeft) ;
 		props.y = parseInt(animation['from'].marginTop) ;
+		props.beginColor = convertToRGB(animation['from'].backgroundColor) ;
+		props.endColor = convertToRGB(animation['to'].backgroundColor) ;
 		props.rateX = ( parseInt(animation['to'].marginLeft) - parseInt(animation['from'].marginLeft) ) / ( props.duration / 1000 ) / 60  ;
 		props.rateY = ( parseInt(animation['to'].marginTop) - parseInt(animation['from'].marginTop) ) / ( props.duration / 1000 ) / 60  ;
 	}
