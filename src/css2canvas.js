@@ -76,7 +76,8 @@ var css2canvas = (function(){
 
 		props.mode = config.mode || MODE_CALCULATE ;
 		props.DOM = config.DOM ;
-		props.duration = parseInt(dom.style.animationDuration,10) * 1000 ;
+		props.animation = config.animation ;
+		props.duration = parseInt(props.DOM.style.animationDuration,10) * 1000 ;
 		fakeBody.appendChild(props.DOM);
 
 		props.x = parseInt(animation['from'].marginLeft) ;
@@ -110,7 +111,7 @@ var css2canvas = (function(){
 					props.ctx.drawImage(domCanvas,props.x ,props.y);
 					props.x += props.rateX ;
 					props.y += props.rateY ;
-					requestID = requestAnimationFrame(draw) ;
+					requestID = requestAnimationFrame(drawCalculate) ;
 				}
 			});
 		} else {
@@ -147,7 +148,7 @@ var css2canvas = (function(){
 				var x = parseInt(style.marginLeft) ;
 				var y = parseInt(style.marginTop) ;
 				props.ctx.drawImage(domCanvas, x ,y);
-				requestID = requestAnimationFrame(draw) ;
+				requestID = requestAnimationFrame(drawSimulate) ;
 			}
 		});
 	}
@@ -175,7 +176,7 @@ var css2canvas = (function(){
 			throw new Error('Must provide canvas.') ;
 		}
 
-		switch ( props.mode ){
+		switch ( config.mode ){
 			case MODE_SIMULATE:
 				initSimulate(config);
 				break ;

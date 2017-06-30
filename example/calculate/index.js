@@ -1,7 +1,3 @@
-/* 
-
-Leave below for calculate mode 
-
 var style = {
 	width : '100px' ,
 	height : '100px' ,
@@ -33,8 +29,6 @@ for ( var key in style ){
 	dom.style[key] = style[key] ;
 }
 
-*/
-
 
 var canvas = document.createElement('canvas') ;
 canvas.width = 500 ;
@@ -48,8 +42,9 @@ document.body.appendChild(block);
 
 css2canvas.init({
 	canvas : canvas ,
-	DOM : block ,
-	mode : 'simulate'
+	DOM : dom ,
+	animation : animation ,
+	mode : 'calculate' 
 });
 
 css2canvas.draw();
