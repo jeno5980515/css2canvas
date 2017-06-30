@@ -1,3 +1,6 @@
+/* 
+
+Leave below for calculate mode 
 
 var style = {
 	width : '100px' ,
@@ -25,23 +28,29 @@ var animation = {
 	}
 }
 
-var canvas = document.createElement('canvas') ;
-canvas.width = 500 ;
-canvas.height = 300 ;
-document.body.appendChild(canvas); 
-
 var dom = document.createElement('div') ;
 for ( var key in style ){
 	dom.style[key] = style[key] ;
 }
+
+*/
+
+
+var canvas = document.createElement('canvas') ;
+canvas.width = 500 ;
+canvas.height = 300 ;
+document.body.appendChild(canvas); 
 
 
 var block = document.createElement('div') ;
 block.classList.add('block');
 document.body.appendChild(block);
 
-css2canvas.init(canvas);
-css2canvas.addDOM(dom) ;
-css2canvas.addAnimation(animation) ;
+css2canvas.init({
+	canvas : canvas ,
+	DOM : block ,
+	mode : 'simulate'
+});
+
 css2canvas.draw();
 
