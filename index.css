@@ -1,11 +1,12 @@
 div {
     width: 100px;
     height: 100px;
-    background: red;
-    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
-    transition: width 2s;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 2s;
 }
 
-div:hover {
-    width: 300px;
+@keyframes example {
+    0%   { margin-left:0px; }
+    100% { margin-left:300px; }
 }
