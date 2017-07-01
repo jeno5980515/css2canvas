@@ -3,7 +3,9 @@ The script let you render css animation directly on canvas.
 
 Still under development.
 ## Usage
-import [`html2canvas.js`](https://github.com/niklasvh/html2canvas) and `css2canvas.js`
+import [`html2canvas.js`](https://github.com/niklasvh/html2canvas) and `css2canvas.js`.  
+
+If you want to make gif, you need to import [`gif.js`](https://github.com/jnordberg/gif.js) too.
 ```javascript
 css2canvas.init({
   canvas : canvas ,
@@ -26,6 +28,21 @@ css2canvas.draw();
   // animation object , only needed in simulate mode
   animation : animation 
 }
+```
+## Method
+```javascript
+// initialize css2canvas
+css2canvas.init(config);
+// begin render on canvas
+css2canvas.draw();
+// start record canvas frame
+css2canvas.startRecord();
+// stop record canvas frame
+css2canvas.stopRecord();
+// clear canvas frame
+css2canvas.clearRecord();
+// make gif result
+css2canvas.makeResult();
 ```
 
 ## TODO

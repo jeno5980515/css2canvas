@@ -1,19 +1,30 @@
 
-var canvas = document.createElement('canvas') ;
+var canvas = document.getElementById('canvas') ;
 canvas.width = 500 ;
 canvas.height = 300 ;
-document.body.appendChild(canvas); 
-
-
-var block = document.createElement('div') ;
-block.classList.add('block');
-document.body.appendChild(block);
 
 css2canvas.init({
-	canvas : canvas ,
-	DOM : document.querySelector('.container') ,
-	mode : 'simulate'
+  canvas : canvas ,
+  DOM : document.querySelector('.container') ,
+  mode : 'simulate'
 });
 
 css2canvas.draw();
 
+document.getElementById('startButton').addEventListener('click',function(){
+  if ( this.innerHTML === 'Start' ){
+    css2canvas.startRecord();
+    this.innerHTML = 'Stop' ;
+  } else {
+    css2canvas.stopRecord();
+    this.innerHTML = 'Start' ;
+  }
+})
+
+document.getElementById('clearButton').addEventListener('click',function(){
+  css2canvas.clearRecord();
+})
+
+document.getElementById('makeButton').addEventListener('click',function(){
+  css2canvas.makeResult();
+})
