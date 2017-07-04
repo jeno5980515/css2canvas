@@ -25,7 +25,7 @@ css2canvas.draw();
   DOM : document.querySelector('.container') ,
   // mode in simulate or calculate
   mode : 'simulate' ,
-  // animation object , only needed in simulate mode
+  // animation object , only needed in calculate mode
   animation : animation 
 }
 ```
