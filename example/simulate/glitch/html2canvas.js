@@ -3029,6 +3029,7 @@ _html2canvas.Renderer.Canvas = function(options) {
   }
 
   return function(parsedData, options, document, queue, _html2canvas) {
+    console.log(canvas);
     var ctx = canvas.getContext("2d"),
     newCanvas,
     bounds,
@@ -3088,4 +3089,4 @@ _html2canvas.Renderer.Canvas = function(options) {
     return canvas;
   };
 };
-})(window,document);
+})(self,document);

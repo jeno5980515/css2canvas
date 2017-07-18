@@ -1,0 +1,26 @@
+{
+  "name": "css2canvas",
+  "version": "0.0.1",
+  "description": "The script let you render css animation directly on canvas.",
+  "main": "src/css2canvas.js",
+  "directories": {
+    "example": "example",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "https",
+    "url": "https://github.com/jeno5980515/css2canvas.git"
+  },
+  "keywords": [
+    "canvas"
+  ],
+  "author": "jeno5980515",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeno5980515/css2canvas/issues"
+  },
+  "homepage": "https://github.com/jeno5980515/css2canvas#readme"
+}
